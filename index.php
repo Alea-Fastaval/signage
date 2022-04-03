@@ -22,7 +22,7 @@
                     <label>Text color</label> <input class="text-color" type="text" value="#000000"/>
                     <label>Font size</label> <input class="font-size" type="number" value="100"/>
                 </div>
-                <p class="alignment">
+                <p class="alignment clear">
                     <label class="block">Alignment</label>
                     <input type="radio" name="alignment" class="left alignment" value="left"/> <label for="left">Left</label>
                     <input type="radio" name="alignment" class="center alignment" checked="checked" value="center"/> <label for="left">Center</label>
