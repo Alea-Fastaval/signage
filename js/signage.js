@@ -538,7 +538,6 @@ function Signage(options)
         var self      = $(e.target),
             classname;
 
-        e.preventDefault();
         e.stopPropagation();
 
         $('#text-color-picker').hide();
@@ -771,8 +770,13 @@ function Signage(options)
      *
      * @return void
      */
-    function minimize()
+    function handleBodyClick(e)
     {
+        // If we clicked on the colour picker, don't minimize
+        if ($(e.target).closest('.farbtastic').length > 0) {
+            return;
+        }
+
         $('div.settings:visible').animate({height: 'toggle'});
         $('#text-color-picker').hide();
 
@@ -841,7 +845,7 @@ function Signage(options)
         .on('keyup', 'input.text-color', handleManualTextColorChange);
 
     $('#print').click(handlePrint);
-    $('body').click(minimize);
+    $('body').click(handleBodyClick);
 
     window.setTimeout(function() {
         determineWorkArea();
