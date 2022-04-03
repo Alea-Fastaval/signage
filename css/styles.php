@@ -5,6 +5,8 @@ header('Content-Type: text/css; charset=UTF-8');
 require '../functions.php';
 
 ?>
+@import url('http://fonts.googleapis.com/css?family=Chelsea+Market');
+
 #controller {
     position: fixed;
     bottom: 0;
@@ -93,3 +95,4 @@ p.icons img {
     src: url('/fonts/<?= $file;?>');
 }
 <?php endforeach;?>
+

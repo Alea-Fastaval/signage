@@ -8,7 +8,7 @@ function Signage(options)
         fonts                     = [],
         doc_width                 = options.doc_width || null,
         doc_height                = options.doc_height || null,
-        max_width_percentage      = options.max_width_percentage || 85,
+        max_width_percentage      = options.max_width_percentage || 80,
         max_height_percentage     = options.max_height_percentage || 70,
         min_width_workarea        = options.min_width_workarea || 1250,
         width_height_relationship = options.width_height_relationship || 1.55,
@@ -679,9 +679,11 @@ function Signage(options)
         if (window_loading) {
             print_window.onload = function() {
                 addElement(print_window);
+                print_window.print();
             };
         } else {
             addElement(print_window);
+            print_window.print();
         }
     }
 
@@ -795,7 +797,12 @@ function Signage(options)
             text_color,
             clone;
 
-        clone = $('<div class="contentbox"><img src="' + self.attr('src') + '" alt=""/>' + original.html() + '</div>').insertAfter(last);
+        clone = $('<div class="contentbox"><img src="' + self.attr('src') + '" alt=""/>' + original.html() + '</div>');
+        if (last.length) {
+            clone.insertAfter(last);
+        } else {
+            $('#controller').children().first().before(clone);
+        }
         clone.find('div.settings').hide();
         new CanvasImage(canvas, clone, self.data('path'));
     }

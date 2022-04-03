@@ -14,7 +14,7 @@
     </canvas>
     <div id="controller">
         <div class="contentbox">
-            <textarea>Text goes here</textarea><button class="add-textbox">+</button>
+            <textarea>Text goes here</textarea><button class="add-textbox">+</button><button class="remove-box">-</button>
             <button class="opener">Settings</button>
             <div class="clear"></div>
             <div class="settings">
@@ -61,6 +61,7 @@ $fonts = '';
 foreach (getFonts() as $font => $file) :?>
         <span style="font-family: <?= $font;?>" data-font="<?= $font;?>"> </span>
 <?php endforeach;?>
+        <span style="font-family: 'Chelsea Market" data-font="Chelsea Market"> </span>
     </div>
     <script>
 <?php
@@ -72,7 +73,7 @@ foreach (getBackgrounds() as $file) {
 
     var backgrounds = [<?= trim($backgrounds, ',');?>];
 
-    var signage = new Signage();
+    var signage = new Signage({fit_screen: false});
     </script>
 </body>
 </html>
