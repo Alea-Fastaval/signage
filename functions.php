@@ -14,6 +14,10 @@ function getFonts()
         if (!is_dir($file) && strtolower(substr($file, -4)) == '.ttf') {
             $fonts[htmlspecialchars(basename($file, '.ttf'), ENT_QUOTES, 'UTF-8')] = $file;
         }
+
+        if (!is_dir($file) && strtolower(substr($file, -4)) == '.otf') {
+            $fonts[htmlspecialchars(basename($file, '.otf'), ENT_QUOTES, 'UTF-8')] = $file;
+        }
     }
 
     return $fonts;
